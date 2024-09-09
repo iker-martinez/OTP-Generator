@@ -1,3 +1,25 @@
+let intervalId;
+let seconds = 20;
+let OTPGenerated = '';
+
+OTPGenerated = generateOTP();
+
+intervalId = setInterval(() => {
+
+    let sSec = seconds == 1 ? 'second' : 'seconds';
+    console.log(`Your OTP is ${OTPGenerated}, valid for ${seconds} ${sSec}.`);
+    seconds--;
+
+    if (seconds <= 0) {
+        clearInterval(intervalId);
+        seconds = 20;
+        sSec = '';
+        console.log('');
+        console.log('The process is finished.');
+    }
+
+}, 1000);
+
 function generateOTP() {
     let digits = '0123456789';
     let OTP = '';
@@ -6,6 +28,3 @@ function generateOTP() {
     }
     return OTP;
 }
-
-let OTP_Generator = generateOTP();
-console.log(OTP_Generator);
