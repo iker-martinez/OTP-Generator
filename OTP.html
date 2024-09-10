@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar OTP</title>
+    <script src="OTP.js"></script>
+</head>
+
+<body>
+
+    <p id="miTexto">Hola Mundo</p>
+    <button class="btn" onclick="copiarContenido()">Copiar!</button>
+
+    <script>
+        let texto = 'hola';//document.getElementById('miTexto').innerHTML;
+        const copiarContenido = async () => {
+            try {
+                await navigator.clipboard.writeText(texto);
+                //console.log('Contenido copiado al clipboard');
+            } catch (err) {
+                console.error('Falló al copiar: ', err);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
